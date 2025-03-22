@@ -1,0 +1,29 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id               Int       @id @default(autoincrement())
+  telegramId       BigInt    @unique
+  username         String?
+  firstName        String?
+  lastName         String?
+  languageCode     String?
+  birthYear        Int?
+  birthMonth       Int?
+  birthDay         Int?
+  notificationDays Int       @default(3)
+  points           Int       @default(0)
+  registrationStep String?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+  referredBy       User?     @relation("Referrals", fields: [referredById], references: [id])
+  referredById     Int?
+  referredUsers    User[]    @relation("Referrals")
+}

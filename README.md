@@ -1,34 +1,54 @@
-# Telegram Bot Vercel Boilerplate
+# Telegram Birthday Bot
 
-Telegram Bot Vercel Boilerplate based on Node.js and [Telegraf](https://github.com/telegraf/telegraf) framework.
+A Telegram bot that helps users track birthdays of friends and family. The bot sends notifications before upcoming birthdays and allows users to invite friends to register their birthdays.
 
-This template inspired by [Telegram Bot Boilerplate](https://github.com/yakovlevyuri/telegram-bot-boilerplate) for easily deploy to [Vercel](https://vercel.com).
+## Features
 
-[![Live Demo](https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white)](https://medium.com/@7rodma/deploy-a-serverless-telegram-chatbot-using-vercel-57665d942a58)
+- 🎂 Register birthdays with Persian calendar support
+- 🔔 Customizable notification settings (1, 3, 7, or 14 days before birthdays)
+- 👁️ View all registered birthdays
+- 🗓️ See upcoming birthdays (within the next 30 days)
+- 👑 Referral system with points
+- 💬 Support contact
 
-## Before you start
+## Tech Stack
 
-First rename `.env-sample` file to `.env` and fill in all necessary values.
+- Node.js
+- Telegraf (Telegram Bot Framework)
+- PostgreSQL with Prisma ORM
+- Vercel for serverless deployment
 
-```
-BOT_TOKEN="<YOUR_BOT_API_TOKEN>"
-```
+## Setup
 
-## Start your local server
+1. Clone the repository
+2. Install dependencies:
+   ```
+   npm install
+   ```
+   or
+   ```
+   pnpm install
+   ```
 
-```
-yarn
-yarn dev
-```
+3. Copy `.env-sample` to `.env` and fill in your values:
+   ```
+   cp .env-sample .env
+   ```
 
-## Production
+4. Set up the database:
+   ```
+   npx prisma migrate dev
+   ```
 
-You can fork this template and do the necessary changes you need. Then you when are done with your changes simply goto [vercel git import](https://vercel.com/import/git).
+5. Run the bot in development mode:
+   ```
+   npm run dev
+   ```
 
-Reference to [this update](https://vercel.com/docs/security/deployment-protection#migrating-to-standard-protection), you need turn off `Vercel Authentication`, Settings => Deployment Protection
+## Deployment
 
-Feel free to create PR!
+The bot is configured to deploy on Vercel. Connect your repository to Vercel and set the environment variables in the Vercel dashboard.
 
-## Demo
+## License
 
-You can see a working version of the bot at [@Node_api_m_bot](https://t.me/Node_api_m_bot)
+See the [LICENSE](LICENSE) file for details.
